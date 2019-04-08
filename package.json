@@ -1,0 +1,32 @@
+{
+  "name": "front-end-stretch",
+  "version": "1.0.0",
+  "description": "front end stretch",
+  "main": "index.js",
+  "scripts": {
+    "test": "test",
+    "react-dev": "webpack -d --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ZalloProject/search-bar.git"
+  },
+  "author": "Ben Poling",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ZalloProject/search-bar/issues"
+  },
+  "homepage": "https://github.com/ZalloProject/search-bar#readme",
+  "dependencies": {
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.5",
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.0"
+  }
+}
