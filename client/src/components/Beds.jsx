@@ -1,7 +1,7 @@
 import React from 'react';
 
-const Beds = ({ open, bedsCheck, change, homeCheck }) => {
-  if (!open && bedsCheck && !homeCheck) {
+const Beds = ({ bedsCheck, change }) => {
+  if (bedsCheck) {
     return (
       <div className="bedContainer">
         <span id="zero0" onClick={change} className="bedSpan"><p className="pBeds">0+</p></span>

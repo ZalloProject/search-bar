@@ -2,7 +2,7 @@ import React from 'react';
 import highSpanChange from '../utils/highSpanChange.jsx';
 
 const Prices = ({ check, low, high, lowChange, highCheck, highChange, homeCheck }) => {
-  if (check && !highCheck && !homeCheck) {
+  if (check && !highCheck) {
     return (
       <div className="pricesContainer">
         <div className="priceInputTrack">
@@ -21,7 +21,7 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange, homeCheck 
         <span id="eightP" className="lowPrice" onClick={lowChange}><p className="pLow">$725,000+</p></span>
       </div>
     )
-  } else if(check && highCheck && !homeCheck) {
+  } else if(check && highCheck) {
     const highPricesSpanArr = highSpanChange(low, highChange);
     return (
       <div className="pricesContainer">

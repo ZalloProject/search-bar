@@ -89,9 +89,6 @@ class Search extends Component {
 
   openHomes(e) {
     const { priceCheck, bedsCheck, homeCheck} = this.state;
-    if(priceCheck || bedsCheck) {
-      return;
-    }
     if(homeCheck) {
       this.setState({
         homeCheck: false,
@@ -99,21 +96,23 @@ class Search extends Component {
     } else {
       this.setState({
         homeCheck: true,
+        bedsCheck: false,
+        priceCheck: false,
       })
     }
   }
 
   openPrice(e) {
     const { priceCheck, bedsCheck, homeCheck } = this.state;
-    if(bedsCheck || homeCheck) {
-      return;
-    }
     if(priceCheck) {
       this.setState({
         priceCheck: false,
       })
     } else {
+      console.log('DID I MAKE ITHERE???????')
       this.setState({
+        homeCheck: false,
+        bedsCheck: false,
         priceCheck: true,
       })
     }
@@ -133,16 +132,15 @@ class Search extends Component {
 
   openBeds(e) {
     const { bedsCheck, priceCheck, homeCheck } = this.state;
-    if(priceCheck || homeCheck) {
-      return;
-    }
     if(bedsCheck) {
       this.setState({
         bedsCheck: false,
       })
     } else {
       this.setState({
+        homeCheck: false,
         bedsCheck: true,
+        priceCheck: false,
       })
     }
   }
@@ -187,17 +185,17 @@ class Search extends Component {
         <div className="priceContainer">
           <p className="priceP" onClick={this.openPrice}>{newLow} - {newHigh}</p>
           <img onClick={this.openPrice} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="arrowStyle"/>
-        <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange} homeCheck={homeCheck}/>
+        <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange} />
         </div>
         <div className="bedsContainer">
           <p className="bedsP" onClick={this.openBeds}>{beds}+ Beds</p>
           <img onClick={this.openBeds} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="bedsArrowStyle"/>
-        <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange} homeCheck={homeCheck}/>
+        <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange} />
         </div>
         <div className="homeTypeContainer">
           <p onClick={this.openHomes} className="homeP">Home Type</p>
           <img onClick={this.openHomes} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="homeArrowStyle"/>
-          <HomeType change={this.homeChange} bedCheck={bedsCheck} priceCheck={priceCheck} homeCheck={homeCheck}/>
+          <HomeType change={this.homeChange} homeCheck={homeCheck}/>
         </div>
       </div>
     )

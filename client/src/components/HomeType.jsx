@@ -1,7 +1,7 @@
 import React from 'react';
 
-const HomeType = ({ bedCheck, priceCheck, homeCheck, change }) => {
-  if(!bedCheck && !priceCheck && homeCheck) {
+const HomeType = ({ homeCheck, change }) => {
+  if(homeCheck) {
     return (
       <div className="homeOptionContainer">
         <span className="houseSpan"><input onClick={change} className="homeInp" id="houses" type="checkbox" defaultChecked/><p className="homeP">Houses</p></span>
