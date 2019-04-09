@@ -40,12 +40,13 @@ class Search extends Component {
   }
   
   bedsChange(e) {
+    const bedSplit = e.currentTarget.id.split('')
+    const bedNumber = bedSplit[bedSplit.length - 1];
     this.setState({
       bedsCheck: false,
-      beds: e.currentTarget.id,
+      beds: bedNumber,
     }, () => {
-      const { beds } = this.state;
-      const event = new CustomEvent('beds_change', { detail: { beds } })
+      const event = new CustomEvent('beds_change', { detail: { beds: bedNumber } })
       window.dispatchEvent(event);
     })
   }
