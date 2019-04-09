@@ -1,0 +1,112 @@
+.mainStyle {
+  border: solid;
+  height: 50px;
+  width: 100%;
+  display: flex;
+}
+.inputStyle {
+  height: 25px;
+  display: flex;
+  margin-top: 10px;
+  width: 170px;
+}
+.imageStyle {
+  height: 20px;
+  margin-top: 15px;
+  position: absolute;
+  margin-left: 146px;
+}
+.inputContainer {
+  display: flex;
+  width: 170px;
+  position: relative;
+}
+.arrowStyle {
+  height: 10px;
+  position: absolute;
+  margin-top: 21px;
+  margin-left: 75px;
+  padding-left: 5px;
+}
+.priceContainer {
+  margin-left: 10px;
+  display: flex;
+  position: relative;
+  width: 90px;
+  flex-direction: column;
+}
+
+.priceInputTrack {
+  display: flex;
+  height: 33px;
+  border-bottom: solid;
+  border-width: 1px;
+}
+
+.priceInput {
+  height: 20px;
+  width: 80px;
+  font-size: 14px;
+}
+
+.pricesContainer {
+  width: 177px;
+  height: 300px;
+  border: solid;
+  border-width: 1px;
+  position: absolute;
+  margin-top: 50px;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.firstLowPrice {
+  height: 30px;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.firstLowPrice:hover {
+  background-color: lightblue;
+}
+
+.lowPrice {
+  height: 30px;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+}
+
+.lowPrice:hover {
+  background-color: lightblue;
+}
+
+.firstHighPrice {
+  height: 30px;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.firstHighPrice:hover {
+  background-color: lightblue;
+}
+
+.highPrice {
+  height: 30px;
+  width: 100%;
+  font-size: 18px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.highPrice:hover {
+  background-color: lightblue;
+}
