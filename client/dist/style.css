@@ -184,3 +184,23 @@
   height: 250px;
   flex-direction: column;
 }
+
+.houseSpan {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.homeOptionContainer {
+  width: 150px;
+  border: solid;
+  border-width: 1px;
+}
+
+.homeInp {
+  margin-left: 5px;
+}
+
+.homeP {
+  margin-left: 5px;
+}
