@@ -27,6 +27,18 @@ describe('Search component', () => {
       done();
     });
   })
+  test('The low price changes on state when clicked', (done) => {
+    const wrapper = mount(<Search />);
+    wrapper.setState({ priceCheck: true }, () => {
+      const before = wrapper.state('priceLow');
+      wrapper.find('#twoP').simulate('click');
+      setTimeout(() => {
+        const after = wrapper.state('priceLow');
+        expect(before !== after).toBe(true);
+        done();
+      }, 0);
+    });
+  })
     test('Price dropdown renders high prices when priceCheck/highPriceCheck in state is true', (done) => {
     const wrapper = mount(<Search />);
     wrapper.setState({ priceCheck: true, highPriceCheck: true }, () => {
@@ -73,5 +85,60 @@ describe('Search component', () => {
     const text = wrapper.find('.bedsP').text();
     expect(text === '1+ Beds').toBe(true);
     done();
+  });
+  test('The home option drop down should render', (done) => {
+    const wrapper = mount(<Search />);
+    wrapper.setState( { homeCheck: true }, () => {
+      expect(wrapper.find('.houseSpan').length).toBe(4);
+      done();
+    });
+  });
+  test('Clicking home option houses check box should change state', (done) => {
+    const wrapper = mount(<Search />);
+    wrapper.setState({ homeCheck: true }, () => {
+      const before = wrapper.state('houses');
+      wrapper.find('#houses').simulate('click');
+      setTimeout(() => {
+        const after = wrapper.state('houses');
+        expect(before === after).toBe(false);
+        done();
+      }, 0);
+    })
+  })
+  test('Clicking home option apartment check box should change state', (done) => {
+    const wrapper = mount(<Search />);
+    wrapper.setState({ homeCheck: true }, () => {
+      const before = wrapper.state('apts');
+      wrapper.find('#Apts').simulate('click');
+      setTimeout(() => {
+        const after = wrapper.state('apts');
+        expect(before === after).toBe(false);
+        done();
+      }, 0);
+    })
+  })
+  test('Clicking home option condo check box should change state', (done) => {
+    const wrapper = mount(<Search />);
+    wrapper.setState({ homeCheck: true }, () => {
+      const before = wrapper.state('condos');
+      wrapper.find('#condo').simulate('click');
+      setTimeout(() => {
+        const after = wrapper.state('condos');
+        expect(before === after).toBe(false);
+        done();
+      }, 0);
+    })
+  })
+  test('Clicking home option townhome check box should change state', (done) => {
+    const wrapper = mount(<Search />);
+    wrapper.setState({ homeCheck: true }, () => {
+      const before = wrapper.state('townHomes');
+      wrapper.find('#thomes').simulate('click');
+      setTimeout(() => {
+        const after = wrapper.state('townHomes');
+        expect(before === after).toBe(false);
+        done();
+      }, 0);
+    })
   })
 });
