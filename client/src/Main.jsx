@@ -15,7 +15,6 @@ class Search extends Component {
       highPriceCheck: false,
       beds: '1',
       bedsCheck: false,
-      isOpen: false,
     }
     this.openPrice = this.openPrice.bind(this);
     this.lowPriceChange = this.lowPriceChange.bind(this);
@@ -32,19 +31,16 @@ class Search extends Component {
     if(priceCheck) {
       this.setState({
         priceCheck: false,
-        isOpen: false,
       })
     } else {
       this.setState({
         priceCheck: true,
-        isOpen: true,
       })
     }
   }
   
   bedsChange(e) {
     this.setState({
-      isOpen: false,
       bedsCheck: false,
       beds: e.currentTarget.id,
     }, () => {
@@ -62,12 +58,10 @@ class Search extends Component {
     if(bedsCheck) {
       this.setState({
         bedsCheck: false,
-        isOpen: false,
       })
     } else {
       this.setState({
         bedsCheck: true,
-        isOpen: true,
       })
     }
   }
@@ -98,7 +92,7 @@ class Search extends Component {
   }
 
   render() {
-    const { priceLow, priceHigh, priceCheck, highPriceCheck, isOpen, beds, bedsCheck } = this.state;
+    const { priceLow, priceHigh, priceCheck, highPriceCheck, beds, bedsCheck } = this.state;
     let newLow = priceLow.split(',')[0];
     newLow = newLow + 'k';
     let newHigh = priceHigh.split(',')[0];
@@ -112,7 +106,7 @@ class Search extends Component {
         <div className="priceContainer">
           <p className="priceP" onClick={this.openPrice}>{newLow} - {newHigh}</p>
           <img onClick={this.openPrice} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="arrowStyle"/>
-        <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange} open={isOpen}/>
+        <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange} />
         </div>
         <div className="bedsContainer">
           <p className="bedsP" onClick={this.openBeds}>{beds}+ Beds</p>
