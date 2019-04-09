@@ -69,8 +69,8 @@ class Search extends Component {
           <img src="https://image.flaticon.com/icons/svg/61/61088.svg" alt="search glass" className="imageStyle"/>
         </div>
         <div className="priceContainer">
-          <p onClick={this.openPrice}>{newLow} - {newHigh}</p>
-          <img onClick={this.openPrice} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="arrowStyle"/>
+          <p className="priceP" onClick={this.openPrice}>{newLow} - {newHigh}</p>
+          <img className="priceImg" onClick={this.openPrice} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="arrowStyle"/>
         <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange}/>
         </div>
       </div>
