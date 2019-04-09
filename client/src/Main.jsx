@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Prices from './components/Prices.jsx';
 import Beds from './components/Beds.jsx';
+import HomeType from './components/HomeType.jsx';
 
 window.addEventListener('price_change', (e) => console.log(e.detail))
 window.addEventListener('beds_change', (e) => console.log(e.detail));
@@ -113,6 +114,11 @@ class Search extends Component {
           <p className="bedsP" onClick={this.openBeds}>{beds}+ Beds</p>
           <img onClick={this.openBeds} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="bedsArrowStyle"/>
         <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange}/>
+        </div>
+        <div className="homeTypeContainer">
+          <p className="homeP">Home Type</p>
+          <img src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="homeArrowStyle"/>
+          <HomeType />
         </div>
       </div>
     )
