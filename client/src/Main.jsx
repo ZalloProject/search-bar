@@ -31,7 +31,7 @@ class Search extends Component {
   }
 
   lowPriceChange(e) {
-    let priceLow = e.currentTarget.innerHTML;
+    let priceLow = e.currentTarget.children[0].innerHTML;
     priceLow = priceLow.substr(1, priceLow.length - 2);
     this.setState({
       priceLow,
@@ -40,7 +40,7 @@ class Search extends Component {
   }
 
   highPriceChange(e) {
-    let high = e.currentTarget.innerHTML;
+    let high = e.currentTarget.children[0].innerHTML;
     high = high.substr(1, high.length - 2);
     this.setState({
       priceHigh: high,
