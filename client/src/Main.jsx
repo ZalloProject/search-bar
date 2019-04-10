@@ -194,7 +194,7 @@ class Search extends Component {
     return (
       <div className="mainStyle">
         <div className="inputContainer">
-          <input type="text" className="inputStyle" />
+          <input type="text" className="inputStyle" placeholder="Address, Neighborhood, or ZIP" />
           <img src="https://image.flaticon.com/icons/svg/61/61088.svg" alt="search glass" className="imageStyle" />
         </div>
         <div className="priceContainer">
@@ -242,6 +242,14 @@ class Search extends Component {
             className="homeArrowStyle"
           />
           <HomeType change={this.homeChange} homeCheck={homeCheck} />
+        </div>
+        <div className="endMainContainer">
+          <div className="saveSearchContainer">
+            <p className="saveSearchP">Save Search</p>
+          </div>
+          <div className="savedHomesContainer">
+            <p className="savedHomesP">Saved homes (0)</p>
+          </div>
         </div>
       </div>
     );

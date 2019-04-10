@@ -1,8 +1,8 @@
 .mainStyle {
-  border: solid;
   height: 50px;
   width: 100%;
   display: flex;
+  box-shadow: 0 4px 4px -2px #c3c3c3;
 }
 .inputStyle {
   height: 25px;
@@ -25,7 +25,7 @@
   height: 10px;
   position: absolute;
   margin-top: 21px;
-  margin-left: 80px;
+  margin-left: 76px;
   padding-left: 5px;
 }
 .priceContainer {
@@ -202,5 +202,60 @@
 }
 
 .homeP {
+  margin-left: 3px;
+}
+
+.bedsP {
   margin-left: 5px;
+}
+
+.priceP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.bedsP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.homeP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.saveSearchP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.endMainContainer {
+  margin: auto;
+  margin-right: 0px;
+  display: flex;
+}
+
+.saveSearchContainer {
+  margin-right: 10px;
+}
+
+.savedHomesContainer {
+  background-color: #006aff;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.savedHomesContainer:hover {
+  cursor: pointer;
+  background: #1e5799; /* Old browsers */
+  background: -moz-linear-gradient(top, #1e5799 0%, #2989d8 64%, #7db9e8 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(top, #1e5799 0%, #2989d8 64%, #7db9e8 100%); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #1e5799 0%,
+    #2989d8 64%,
+    #7db9e8 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 }
