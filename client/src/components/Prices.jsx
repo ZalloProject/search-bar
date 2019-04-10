@@ -9,8 +9,8 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
     return (
       <div className={style.pricesContainer}>
         <div className={style.priceInputTrack}>
-          <input defaultValue={low} type="text" className={style.priceInput} />
-          <input defaultValue={high} type="text" className={style.priceInput} />
+          <input value={low} type="text" className={style.priceInput} readOnly />
+          <input value={high} type="text" className={style.priceInput} readOnly />
         </div>
         <span
           id="search_zeroP"
@@ -107,12 +107,13 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
   }
   if (check && highCheck) {
     const highPricesSpanArr = highSpanChange(low, highChange);
+    console.log(low, 'THIS IS THE LOW VALUE');
     return (
       <div className={style.pricesContainer}>
         <div className={style.priceInputTrack}>
-          <input defaultValue={low} type="text" className={style.priceInput} />
+          <input value={low} type="text" className={style.priceInput} readOnly />
           <p>-</p>
-          <input defaultValue={high} type="text" className={style.priceInput} />
+          <input value={high} type="text" className={style.priceInput} readOnly />
         </div>
         {highPricesSpanArr}
       </div>

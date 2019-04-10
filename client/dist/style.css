@@ -50,6 +50,7 @@
   width: 80px;
   font-size: 14px;
   margin-right: 5.5px;
+  outline: none;
 }
 
 .pricesContainer {
@@ -70,6 +71,7 @@
   font-size: 18px;
   display: flex;
   align-items: center;
+  outline: none;
 }
 
 .firstLowPrice:hover {
@@ -83,6 +85,7 @@
   font-size: 18px;
   display: flex;
   align-items: center;
+  outline: none;
 }
 
 .lowPrice:hover {
@@ -97,6 +100,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  outline: none;
 }
 
 .firstHighPrice:hover {
@@ -111,6 +115,7 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  outline: none;
 }
 
 .highPrice:hover {
@@ -161,6 +166,7 @@
   display: flex;
   height: 30px;
   align-items: center;
+  outline: none;
 }
 
 .bedSpan:hover {
