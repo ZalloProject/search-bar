@@ -16,7 +16,7 @@ describe('Search component', () => {
   test('Price component renders correct string when app mounts', done => {
     const wrapper = mount(<Search />);
     const text = wrapper.find('.priceP').text();
-    expect(text === '125k - 500k').toBe(true);
+    expect(text === '125k - 950k').toBe(true);
     done();
   });
   test('Price dropdown renders when priceCheck in state is true', done => {
