@@ -3,6 +3,12 @@
   "version": "1.0.0",
   "description": "front end stretch",
   "main": "index.js",
+  "jest": {
+    "moduleNameMapper": {
+      "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/__mocks__/fileMock.js",
+      "\\.(css|less)$": "identity-obj-proxy"
+    }
+  },
   "scripts": {
     "test": "jest --coverage",
     "react-dev": "webpack -d --watch"
@@ -18,10 +24,13 @@
   },
   "homepage": "https://github.com/ZalloProject/search-bar#readme",
   "dependencies": {
+    "css-loader": "^2.1.1",
     "eslint-config-airbnb-base": "^13.1.0",
+    "identity-obj-proxy": "^3.0.0",
     "jest-environment-enzyme": "^7.0.2",
     "react": "^16.8.6",
-    "react-dom": "^16.8.6"
+    "react-dom": "^16.8.6",
+    "style-loader": "^0.23.1"
   },
   "devDependencies": {
     "@babel/core": "^7.4.3",

@@ -4,6 +4,7 @@ import React, { Component } from 'react';
 import Prices from './components/Prices.jsx';
 import Beds from './components/Beds.jsx';
 import HomeType from './components/HomeType.jsx';
+import style from '../dist/style.css';
 
 // window.addEventListener('price_change', (e) => console.log(e.detail))
 // window.addEventListener('beds_change', (e) => console.log(e.detail));
@@ -40,25 +41,25 @@ class Search extends Component {
     let newCondoCheck = condos;
     let newTownCheck = townHomes;
     let newAptCheck = apts;
-    if (e.currentTarget.id === 'houses') {
+    if (e.currentTarget.id === 'search_houses') {
       if (houses === 'X') {
         newHouseCheck = '';
       } else {
         newHouseCheck = 'X';
       }
-    } else if (e.currentTarget.id === 'Apts') {
+    } else if (e.currentTarget.id === 'search_Apts') {
       if (apts === 'X') {
         newAptCheck = '';
       } else {
         newAptCheck = 'X';
       }
-    } else if (e.currentTarget.id === 'thomes') {
+    } else if (e.currentTarget.id === 'search_thomes') {
       if (townHomes === 'X') {
         newTownCheck = '';
       } else {
         newTownCheck = 'X';
       }
-    } else if (e.currentTarget.id === 'condo') {
+    } else if (e.currentTarget.id === 'search_condo') {
       if (condos === 'X') {
         newCondoCheck = '';
       } else {
@@ -192,13 +193,17 @@ class Search extends Component {
     let newHigh = priceHigh.split(',')[0];
     newHigh += 'k';
     return (
-      <div className="mainStyle">
-        <div className="inputContainer">
-          <input type="text" className="inputStyle" placeholder="Address, Neighborhood, or ZIP" />
-          <img src="https://image.flaticon.com/icons/svg/61/61088.svg" alt="search glass" className="imageStyle" />
+      <div className={style.mainStyle}>
+        <div className={style.inputContainer}>
+          <input type="text" className={style.inputStyle} placeholder="Address, Neighborhood, or ZIP" />
+          <img
+            src="https://image.flaticon.com/icons/svg/61/61088.svg"
+            alt="search glass"
+            className={style.imageStyle}
+          />
         </div>
-        <div className="priceContainer">
-          <p className="priceP" onClick={this.openPrice} onKeyPress={this.openPrice}>
+        <div className={style.priceContainer}>
+          <p className={style.priceP} onClick={this.openPrice} onKeyPress={this.openPrice}>
             {newLow} - {newHigh}
           </p>
           <img
@@ -206,7 +211,7 @@ class Search extends Component {
             onKeyPress={this.openPrice}
             src="https://image.flaticon.com/icons/svg/60/60995.svg"
             alt="arrow down"
-            className="arrowStyle"
+            className={style.arrowStyle}
           />
           <Prices
             check={priceCheck}
@@ -217,8 +222,8 @@ class Search extends Component {
             highChange={this.highPriceChange}
           />
         </div>
-        <div className="bedsContainer">
-          <p onClick={this.openBeds} onKeyPress={this.openBeds} className="bedsP">
+        <div className={style.bedsContainer}>
+          <p onClick={this.openBeds} onKeyPress={this.openBeds} className={style.bedsP}>
             {beds}+ Beds
           </p>
           <img
@@ -226,12 +231,12 @@ class Search extends Component {
             onKeyPress={this.openBeds}
             src="https://image.flaticon.com/icons/svg/60/60995.svg"
             alt="arrow down"
-            className="bedsArrowStyle"
+            className={style.bedsArrowStyle}
           />
           <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange} />
         </div>
-        <div className="homeTypeContainer">
-          <p className="homeP" onClick={this.openHomes} onKeyPress={this.openHomes}>
+        <div className={style.homeTypeContainer}>
+          <p className={style.homeP} onClick={this.openHomes} onKeyPress={this.openHomes}>
             Home Type
           </p>
           <img
@@ -239,16 +244,16 @@ class Search extends Component {
             onKeyPress={this.openHomes}
             src="https://image.flaticon.com/icons/svg/60/60995.svg"
             alt="arrow down"
-            className="homeArrowStyle"
+            className={style.homeArrowStyle}
           />
           <HomeType change={this.homeChange} homeCheck={homeCheck} />
         </div>
-        <div className="endMainContainer">
-          <div className="saveSearchContainer">
-            <p className="saveSearchP">Save Search</p>
+        <div className={style.endMainContainer}>
+          <div className={style.saveSearchContainer}>
+            <p className={style.saveSearchP}>Save Search</p>
           </div>
-          <div className="savedHomesContainer">
-            <p className="savedHomesP">Saved homes (0)</p>
+          <div className={style.savedHomesContainer}>
+            <p className={style.savedHomesP}>Saved homes (0)</p>
           </div>
         </div>
       </div>

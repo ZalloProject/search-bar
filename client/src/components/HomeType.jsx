@@ -1,25 +1,26 @@
 /* eslint-disable react/prop-types */
 import React from 'react';
+import style from '../../dist/style.css';
 
 const HomeType = ({ homeCheck, change }) => {
   if (homeCheck) {
     return (
-      <div className="homeOptionContainer">
-        <span className="houseSpan">
-          <input onClick={change} className="homeInp" id="houses" type="checkbox" defaultChecked />
-          <p className="homeP">Houses</p>
+      <div className={style.homeOptionContainer}>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_houses" type="checkbox" defaultChecked />
+          <p className={style.homeP}>Houses</p>
         </span>
-        <span className="houseSpan">
-          <input onClick={change} className="homeInp" id="Apts" type="checkbox" defaultChecked />
-          <p className="homeP">Apartments</p>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_Apts" type="checkbox" defaultChecked />
+          <p className={style.homeP}>Apartments</p>
         </span>
-        <span className="houseSpan">
-          <input onClick={change} className="homeInp" id="thomes" type="checkbox" defaultChecked />
-          <p className="homeP">TownHomes</p>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_thomes" type="checkbox" defaultChecked />
+          <p className={style.homeP}>TownHomes</p>
         </span>
-        <span className="houseSpan">
-          <input onClick={change} className="homeInp" id="condo" type="checkbox" defaultChecked />
-          <p className="homeP">Condos</p>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_condo" type="checkbox" defaultChecked />
+          <p className={style.homeP}>Condos</p>
         </span>
       </div>
     );
