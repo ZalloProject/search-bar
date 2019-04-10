@@ -10,7 +10,6 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
       <div className={style.pricesContainer}>
         <div className={style.priceInputTrack}>
           <input defaultValue={low} type="text" className={style.priceInput} />
-          <p>-</p>
           <input defaultValue={high} type="text" className={style.priceInput} />
         </div>
         <span

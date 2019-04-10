@@ -8,19 +8,19 @@ const HomeType = ({ homeCheck, change }) => {
       <div className={style.homeOptionContainer}>
         <span className={style.houseSpan}>
           <input onClick={change} className={style.homeInp} id="search_houses" type="checkbox" defaultChecked />
-          <p className={style.homeP}>Houses</p>
+          <p className={style.spanHomeP}>Houses</p>
         </span>
         <span className={style.houseSpan}>
           <input onClick={change} className={style.homeInp} id="search_Apts" type="checkbox" defaultChecked />
-          <p className={style.homeP}>Apartments</p>
+          <p className={style.spanHomeP}>Apartments</p>
         </span>
         <span className={style.houseSpan}>
           <input onClick={change} className={style.homeInp} id="search_thomes" type="checkbox" defaultChecked />
-          <p className={style.homeP}>TownHomes</p>
+          <p className={style.spanHomeP}>TownHomes</p>
         </span>
         <span className={style.houseSpan}>
           <input onClick={change} className={style.homeInp} id="search_condo" type="checkbox" defaultChecked />
-          <p className={style.homeP}>Condos</p>
+          <p className={style.spanHomeP}>Condos</p>
         </span>
       </div>
     );

@@ -202,51 +202,59 @@ class Search extends Component {
             className={style.imageStyle}
           />
         </div>
-        <div className={style.priceContainer}>
-          <p className={style.priceP} onClick={this.openPrice} onKeyPress={this.openPrice}>
-            {newLow} - {newHigh}
-          </p>
-          <img
-            onClick={this.openPrice}
-            onKeyPress={this.openPrice}
-            src="https://image.flaticon.com/icons/svg/60/60995.svg"
-            alt="arrow down"
-            className={style.arrowStyle}
-          />
-          <Prices
-            check={priceCheck}
-            low={priceLow}
-            high={priceHigh}
-            lowChange={this.lowPriceChange}
-            highCheck={highPriceCheck}
-            highChange={this.highPriceChange}
-          />
-        </div>
-        <div className={style.bedsContainer}>
-          <p onClick={this.openBeds} onKeyPress={this.openBeds} className={style.bedsP}>
-            {beds}+ Beds
-          </p>
-          <img
-            onClick={this.openBeds}
-            onKeyPress={this.openBeds}
-            src="https://image.flaticon.com/icons/svg/60/60995.svg"
-            alt="arrow down"
-            className={style.bedsArrowStyle}
-          />
-          <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange} />
-        </div>
-        <div className={style.homeTypeContainer}>
-          <p className={style.homeP} onClick={this.openHomes} onKeyPress={this.openHomes}>
-            Home Type
-          </p>
-          <img
-            onClick={this.openHomes}
-            onKeyPress={this.openHomes}
-            src="https://image.flaticon.com/icons/svg/60/60995.svg"
-            alt="arrow down"
-            className={style.homeArrowStyle}
-          />
-          <HomeType change={this.homeChange} homeCheck={homeCheck} />
+        <div className={style.filterContainer}>
+          <div className={style.priceContainer}>
+            <div className="pricesPIMG">
+              <p className={style.priceP} onClick={this.openPrice} onKeyPress={this.openPrice}>
+                {newLow} - {newHigh}
+              </p>
+              <img
+                onClick={this.openPrice}
+                onKeyPress={this.openPrice}
+                src="https://image.flaticon.com/icons/svg/60/60995.svg"
+                alt="arrow down"
+                className={style.arrowStyle}
+              />
+            </div>
+            <Prices
+              check={priceCheck}
+              low={priceLow}
+              high={priceHigh}
+              lowChange={this.lowPriceChange}
+              highCheck={highPriceCheck}
+              highChange={this.highPriceChange}
+            />
+          </div>
+          <div className={style.bedsContainer}>
+            <div className={style.bedsPIMG}>
+              <p onClick={this.openBeds} onKeyPress={this.openBeds} className={style.bedsP}>
+                {beds}+ Beds
+              </p>
+              <img
+                onClick={this.openBeds}
+                onKeyPress={this.openBeds}
+                src="https://image.flaticon.com/icons/svg/60/60995.svg"
+                alt="arrow down"
+                className={style.bedsArrowStyle}
+              />
+            </div>
+            <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange} />
+          </div>
+          <div className={style.homeTypeContainer}>
+            <div className={style.homePIMG}>
+              <p className={style.homeP} onClick={this.openHomes} onKeyPress={this.openHomes}>
+                Home Type
+              </p>
+              <img
+                onClick={this.openHomes}
+                onKeyPress={this.openHomes}
+                src="https://image.flaticon.com/icons/svg/60/60995.svg"
+                alt="arrow down"
+                className={style.homeArrowStyle}
+              />
+            </div>
+            <HomeType change={this.homeChange} homeCheck={homeCheck} />
+          </div>
         </div>
         <div className={style.endMainContainer}>
           <div className={style.saveSearchContainer}>
