@@ -31,7 +31,7 @@ class Search extends Component {
   }
 
   lowPriceChange(e) {
-    let priceLow = e.currentTarget.innerHTML;
+    let priceLow = e.currentTarget.children[0].innerHTML;
     priceLow = priceLow.substr(1, priceLow.length - 2);
     this.setState({
       priceLow,
@@ -40,7 +40,7 @@ class Search extends Component {
   }
 
   highPriceChange(e) {
-    let high = e.currentTarget.innerHTML;
+    let high = e.currentTarget.children[0].innerHTML;
     high = high.substr(1, high.length - 2);
     this.setState({
       priceHigh: high,
@@ -69,8 +69,8 @@ class Search extends Component {
           <img src="https://image.flaticon.com/icons/svg/61/61088.svg" alt="search glass" className="imageStyle"/>
         </div>
         <div className="priceContainer">
-          <p onClick={this.openPrice}>{newLow} - {newHigh}</p>
-          <img onClick={this.openPrice} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="arrowStyle"/>
+          <p className="priceP" onClick={this.openPrice}>{newLow} - {newHigh}</p>
+          <img className="priceImg" onClick={this.openPrice} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="arrowStyle"/>
         <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange}/>
         </div>
       </div>

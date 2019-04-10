@@ -28,7 +28,7 @@ const highSpanChange = (price, fn) => {
   let firstNum = numberToStr(price)
   spanArr.push(
     (
-      <span onClick={fn} key={firstNum} className="firstHighPrice">{firstNum}</span>
+      <span onClick={fn} key={firstNum} className="firstHighPrice"><p className="pFirstHigh">{firstNum}</p></span>
     )
   )
   price = Number(price)
@@ -37,7 +37,7 @@ const highSpanChange = (price, fn) => {
     const newPrice = numberToStr(price);
     spanArr.push(
       (
-        <span onClick={fn} key={newPrice} className="highPrice">{newPrice}</span>
+        <span onClick={fn} key={newPrice} className="highPrice"><p className="pHigh">{newPrice}</p></span>
       )
     )
   }

@@ -6,19 +6,19 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
     return (
       <div className="pricesContainer">
         <div className="priceInputTrack">
-          <input value={low} type="text" className="priceInput"/>
+          <input defaultValue={low} type="text" className="priceInput"/>
           <p>-</p>
-          <input value={high} type="text" className="priceInput"/>
+          <input defaultValue={high} type="text" className="priceInput"/>
         </div>
-        <span className="firstLowPrice" onClick={lowChange}>$125,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$200,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$275,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$350,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$425,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$500,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$575,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$650,000+</span>
-        <span className="lowPrice" onClick={lowChange}>$725,000+</span>
+        <span id="0" className="firstLowPrice" onClick={lowChange}><p className="pFirstLow">$125,000+</p></span>
+        <span id="1" className="lowPrice" onClick={lowChange}><p className="pLow">$200,000+</p></span>
+        <span id="2" className="lowPrice" onClick={lowChange}><p className="pLow">$275,000+</p></span>
+        <span id="3" className="lowPrice" onClick={lowChange}><p className="pLow">$350,000+</p></span>
+        <span id="4" className="lowPrice" onClick={lowChange}><p className="pLow">$425,000+</p></span>
+        <span id="5" className="lowPrice" onClick={lowChange}><p className="pLow">$500,000+</p></span>
+        <span id="6" className="lowPrice" onClick={lowChange}><p className="pLow">$575,000+</p></span>
+        <span id="7" className="lowPrice" onClick={lowChange}><p className="pLow">$650,000+</p></span>
+        <span id="8" className="lowPrice" onClick={lowChange}><p className="pLow">$725,000+</p></span>
       </div>
     )
   } else if(check && highCheck) {
@@ -26,9 +26,9 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
     return (
       <div className="pricesContainer">
         <div className="priceInputTrack">
-          <input value={low} type="text" className="priceInput"/>
+          <input defaultValue={low} type="text" className="priceInput"/>
           <p>-</p>
-          <input value={high} type="text" className="priceInput"/>
+          <input defaultValue={high} type="text" className="priceInput"/>
         </div>
         {highPricesSpanArr}
       </div>
