@@ -77,6 +77,7 @@
 .firstLowPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .lowPrice {
@@ -91,6 +92,7 @@
 .lowPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .firstHighPrice {
@@ -106,6 +108,7 @@
 .firstHighPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .highPrice {
@@ -121,6 +124,7 @@
 .highPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .pFirstHigh {
@@ -172,6 +176,7 @@
 .bedSpan:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .pBeds {
@@ -303,6 +308,10 @@
 
 .spanHomeP {
   margin-left: 5px;
+}
+
+.homeInp:hover {
+  cursor: pointer;
 }
 
 /* 708 px */

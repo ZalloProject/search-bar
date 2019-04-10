@@ -15,7 +15,7 @@ class Search extends Component {
     super();
     this.state = {
       priceLow: '125,000',
-      priceHigh: '500,000',
+      priceHigh: '950,000',
       priceCheck: false,
       highPriceCheck: false,
       beds: '1',

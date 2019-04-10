@@ -11,7 +11,8 @@
   },
   "scripts": {
     "test": "jest --coverage",
-    "react-dev": "webpack -d --watch"
+    "react-dev": "webpack -d --watch",
+    "prod-build": "webpack --mode production"
   },
   "repository": {
     "type": "git",
