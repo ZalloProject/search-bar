@@ -107,7 +107,6 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
   }
   if (check && highCheck) {
     const highPricesSpanArr = highSpanChange(low, highChange);
-    console.log(low, 'THIS IS THE LOW VALUE');
     return (
       <div className={style.pricesContainer}>
         <div className={style.priceInputTrack}>
