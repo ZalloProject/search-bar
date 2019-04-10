@@ -25,7 +25,7 @@
   height: 10px;
   position: absolute;
   margin-top: 21px;
-  margin-left: 75px;
+  margin-left: 80px;
   padding-left: 5px;
 }
 .priceContainer {
@@ -129,4 +129,42 @@
 
 .pLow {
   margin-left: 5px;
+}
+
+.bedsArrowStyle {
+  height: 10px;
+  position: absolute;
+  margin-top: 21px;
+  margin-left: 55px;
+  padding-left: 5px;
+}
+
+.bedsContainer {
+  display: flex;
+  margin-left: 13px;
+  width: 70px;
+  height: 250px;
+  flex-direction: column;
+}
+
+.bedContainer {
+  width: 65px;
+  border: solid;
+  border-width: 1px;
+}
+
+.bedSpan {
+  display: flex;
+  height: 30px;
+  align-items: center;
+}
+
+.bedSpan:hover {
+  color: white;
+  background-color: #006aff;
+}
+
+.pBeds {
+  margin-left: 5px;
+  font-size: 18px;
 }
