@@ -2,26 +2,17 @@
 /* eslint-disable no-param-reassign */
 import React from 'react';
 import style from '../../dist/style.css';
+import numbro from 'numbro';
 
+//formats the number into a string
 const numberToStr = num => {
-  num += '';
+  num = numbro(num).format({thousandSeparated: true});
   const dollarSign = '$';
-  if (num.length === 5) {
-    num = dollarSign.concat(num);
-    num = num.split('');
-    const saved = num[2];
-    num.splice(2, 1, `${saved},`);
-    num = num.join('');
-    return num;
-  }
   num = dollarSign.concat(num);
-  num = num.split('');
-  const saved = num[3];
-  num.splice(3, 1, `${saved},`);
-  num = num.join('');
   return num;
 };
 
+//generates the high prices in the price drop down
 const highSpanChange = (price, fn) => {
   const spanArr = [];
   price = price.replace(',', '');

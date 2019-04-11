@@ -31,9 +31,9 @@ class Search extends Component {
     this.view = this.view.bind(this);
   }
 
+  //method to render dropdowns
   view(e) {
     const { view } = this.state;
-    console.log(e.target.id);
     if (e.target.id === 'priceP' || e.target.id === 'priceIMG') {
       view === 'prices' ? 
       this.setState({
@@ -60,7 +60,7 @@ class Search extends Component {
       }); 
     }
   }
-
+  //changes search filter for home type
   homeChange(e) {
     const { houses, condos, townHomes, apts } = this.state;
     let newHouseCheck = houses;
@@ -68,29 +68,13 @@ class Search extends Component {
     let newTownCheck = townHomes;
     let newAptCheck = apts;
     if (e.currentTarget.id === 'search_houses') {
-      if (houses === 'X') {
-        newHouseCheck = '';
-      } else {
-        newHouseCheck = 'X';
-      }
+      houses === 'X' ? newHouseCheck = '' : newHouseCheck = 'X';
     } else if (e.currentTarget.id === 'search_Apts') {
-      if (apts === 'X') {
-        newAptCheck = '';
-      } else {
-        newAptCheck = 'X';
-      }
+      apts === 'X' ? newAptCheck = '' : newAptCheck = 'X';
     } else if (e.currentTarget.id === 'search_thomes') {
-      if (townHomes === 'X') {
-        newTownCheck = '';
-      } else {
-        newTownCheck = 'X';
-      }
+      townHomes === 'X' ? newTownCheck = '' : newTownCheck = 'X';
     } else if (e.currentTarget.id === 'search_condo') {
-      if (condos === 'X') {
-        newCondoCheck = '';
-      } else {
-        newCondoCheck = 'X';
-      }
+      condos === 'X' ? newCondoCheck = '' : newCondoCheck = 'X';
     }
     this.setState(
       {
@@ -111,16 +95,14 @@ class Search extends Component {
         };
         const keys = Object.keys(obj);
         keys.forEach(key => {
-          if (obj[key] === 'X') {
-            optionsArr.push(key);
-          }
+          obj[key] === 'X' ? optionsArr.push(key) : null
         });
         const event = new CustomEvent('options', { detail: { options: optionsArr } });
         window.dispatchEvent(event);
       }
     );
   }
-
+  //method for filtering how many beds
   bedsChange(e) {
     const bedSplit = e.currentTarget.id.split('');
     const bedNumber = bedSplit[bedSplit.length - 1];
@@ -135,7 +117,7 @@ class Search extends Component {
       }
     );
   }
-
+  //method for changing the low price filter
   lowPriceChange(e) {
     let priceLow = e.currentTarget.children[0].innerHTML;
     priceLow = priceLow.substr(1, priceLow.length - 2);
@@ -145,7 +127,7 @@ class Search extends Component {
       highPriceCheck: true
     });
   }
-
+  //method for changing the high price filter
   highPriceChange(e) {
     let high = e.currentTarget.children[0].innerHTML;
     high = high.substr(1, high.length - 2);
@@ -153,10 +135,13 @@ class Search extends Component {
       {
         priceHigh: high,
         highPriceCheck: false,
-        priceCheck: false
+        view: ''
       },
       () => {
-        const { priceLow, priceHigh } = this.state;
+        let { priceLow, priceHigh } = this.state;
+        priceLow = Number(priceLow.replace(',', ''));
+        priceHigh = Number(priceHigh.replace(',', ''));
+        console.log(priceLow);
         const priceEvent = new CustomEvent('price_change', {
           detail: {
             low: priceLow,

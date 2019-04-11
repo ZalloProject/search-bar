@@ -111,7 +111,6 @@ const Prices = ({ view, low, high, lowChange, highCheck, highChange }) => {
       <div className={style.pricesContainer}>
         <div className={style.priceInputTrack}>
           <input value={low} type="text" className={style.priceInput} readOnly />
-          <p>-</p>
           <input value={high} type="text" className={style.priceInput} readOnly />
         </div>
         {highPricesSpanArr}
