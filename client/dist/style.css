@@ -168,3 +168,39 @@
   margin-left: 5px;
   font-size: 18px;
 }
+
+.homeArrowStyle {
+  height: 10px;
+  position: absolute;
+  margin-top: 21px;
+  margin-left: 77px;
+  padding-left: 5px;
+}
+
+.homeTypeContainer {
+  display: flex;
+  margin-left: 13px;
+  width: 90px;
+  height: 250px;
+  flex-direction: column;
+}
+
+.houseSpan {
+  height: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.homeOptionContainer {
+  width: 150px;
+  border: solid;
+  border-width: 1px;
+}
+
+.homeInp {
+  margin-left: 5px;
+}
+
+.homeP {
+  margin-left: 5px;
+}

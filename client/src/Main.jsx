@@ -1,9 +1,11 @@
 import React, { Component } from 'react';
 import Prices from './components/Prices.jsx';
 import Beds from './components/Beds.jsx';
+import HomeType from './components/HomeType.jsx';
 
 window.addEventListener('price_change', (e) => console.log(e.detail))
 window.addEventListener('beds_change', (e) => console.log(e.detail));
+window.addEventListener('options', (e) => console.log(e.detail));
 
 class Search extends Component {
   constructor() {
@@ -15,17 +17,95 @@ class Search extends Component {
       highPriceCheck: false,
       beds: '1',
       bedsCheck: false,
+      homeCheck: false,
+      houses: 'X',
+      condos: 'X',
+      townHomes: 'X',
+      apts: 'X',
     }
     this.openPrice = this.openPrice.bind(this);
     this.lowPriceChange = this.lowPriceChange.bind(this);
     this.highPriceChange = this.highPriceChange.bind(this);
     this.openBeds = this.openBeds.bind(this);
     this.bedsChange = this.bedsChange.bind(this);
+    this.openHomes = this.openHomes.bind(this);
+    this.homeChange = this.homeChange.bind(this);
+  }
+
+  homeChange(e) {
+    const { houses, condos, townHomes, apts } = this.state;
+    let newHouseCheck = houses;
+    let newCondoCheck = condos;
+    let newTownCheck = townHomes;
+    let newAptCheck = apts;
+    if(e.currentTarget.id === 'houses') {
+      if(houses === 'X') {
+        newHouseCheck = '';
+      } else {
+        newHouseCheck = 'X'
+      }
+    } else if(e.currentTarget.id === 'Apts') {
+      if(apts === 'X') {
+        newAptCheck = '';
+      } else {
+        newAptCheck = 'X'
+      }
+    } else if(e.currentTarget.id === 'thomes') {
+      if(townHomes === 'X') {
+        newTownCheck = '';
+      } else {
+        newTownCheck = 'X'
+      }
+    } else if(e.currentTarget.id === 'condo') {
+      if(condos === 'X') {
+        newCondoCheck = '';
+      } else {
+        newCondoCheck = 'X'
+      }
+    }
+    this.setState({
+      houses: newHouseCheck,
+      condos: newCondoCheck,
+      townHomes: newTownCheck,
+      apts: newAptCheck,
+    }, () => {
+      const { houses, condos, townHomes, apts } = this.state;
+      let optionsArr = [];
+      const obj = {
+        houses,
+        condos,
+        townHomes,
+        apts
+      }
+      for(let key in obj) {
+        if(obj[key] === 'X') {
+          optionsArr.push(key);
+        }
+      }
+      const event = new CustomEvent('options', { detail: { options: optionsArr } })
+      window.dispatchEvent(event);
+    })
+  }
+
+  openHomes(e) {
+    const { priceCheck, bedsCheck, homeCheck} = this.state;
+    if(priceCheck || bedsCheck) {
+      return;
+    }
+    if(homeCheck) {
+      this.setState({
+        homeCheck: false,
+      })
+    } else {
+      this.setState({
+        homeCheck: true,
+      })
+    }
   }
 
   openPrice(e) {
-    const { priceCheck, bedsCheck } = this.state;
-    if(bedsCheck) {
+    const { priceCheck, bedsCheck, homeCheck } = this.state;
+    if(bedsCheck || homeCheck) {
       return;
     }
     if(priceCheck) {
@@ -52,8 +132,8 @@ class Search extends Component {
   }
 
   openBeds(e) {
-    const { bedsCheck, priceCheck } = this.state;
-    if(priceCheck) {
+    const { bedsCheck, priceCheck, homeCheck } = this.state;
+    if(priceCheck || homeCheck) {
       return;
     }
     if(bedsCheck) {
@@ -93,7 +173,7 @@ class Search extends Component {
   }
 
   render() {
-    const { priceLow, priceHigh, priceCheck, highPriceCheck, beds, bedsCheck } = this.state;
+    const { priceLow, priceHigh, priceCheck, highPriceCheck, beds, bedsCheck, homeCheck } = this.state;
     let newLow = priceLow.split(',')[0];
     newLow = newLow + 'k';
     let newHigh = priceHigh.split(',')[0];
@@ -107,12 +187,17 @@ class Search extends Component {
         <div className="priceContainer">
           <p className="priceP" onClick={this.openPrice}>{newLow} - {newHigh}</p>
           <img onClick={this.openPrice} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="arrowStyle"/>
-        <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange} />
+        <Prices check={priceCheck} low={priceLow} high={priceHigh} lowChange={this.lowPriceChange} highCheck={highPriceCheck} highChange={this.highPriceChange} homeCheck={homeCheck}/>
         </div>
         <div className="bedsContainer">
           <p className="bedsP" onClick={this.openBeds}>{beds}+ Beds</p>
           <img onClick={this.openBeds} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="bedsArrowStyle"/>
-        <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange}/>
+        <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange} homeCheck={homeCheck}/>
+        </div>
+        <div className="homeTypeContainer">
+          <p onClick={this.openHomes} className="homeP">Home Type</p>
+          <img onClick={this.openHomes} src="https://image.flaticon.com/icons/svg/60/60995.svg" alt="arrow down" className="homeArrowStyle"/>
+          <HomeType change={this.homeChange} bedCheck={bedsCheck} priceCheck={priceCheck} homeCheck={homeCheck}/>
         </div>
       </div>
     )
