@@ -1,5 +1,5 @@
 module.exports = {
-  entry: __dirname + '/client/src/index.jsx',
+  entry: `${__dirname}/client/src/index.jsx`,
   module: {
     rules: [
       {
@@ -11,11 +11,15 @@ module.exports = {
             presets: ['@babel/preset-react', '@babel/preset-env']
           }
         }
+      },
+      {
+        test: /\.css$/,
+        loader: 'style-loader!css-loader?modules=true&localIdentName=[name]__[local]___[hash:base64:5]'
       }
     ]
   },
-   output: {
+  output: {
     filename: 'bundle.js',
-    path: __dirname + '/client/dist'
+    path: `${__dirname}/client/dist`
   }
 };

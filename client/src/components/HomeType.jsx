@@ -1,17 +1,31 @@
+/* eslint-disable react/prop-types */
 import React from 'react';
+import style from '../../dist/style.css';
 
-const HomeType = ({ bedCheck, priceCheck, homeCheck, change }) => {
-  if(!bedCheck && !priceCheck && homeCheck) {
+const HomeType = ({ homeCheck, change }) => {
+  if (homeCheck) {
     return (
-      <div className="homeOptionContainer">
-        <span className="houseSpan"><input onClick={change} className="homeInp" id="houses" type="checkbox" defaultChecked/><p className="homeP">Houses</p></span>
-        <span className="houseSpan"><input onClick={change} className="homeInp" id="Apts" type="checkbox" defaultChecked/><p className="homeP">Apartments</p></span>
-        <span className="houseSpan"><input onClick={change} className="homeInp" id="thomes" type="checkbox" defaultChecked/><p className="homeP">TownHomes</p></span>
-        <span className="houseSpan"><input onClick={change} className="homeInp" id="condo" type="checkbox" defaultChecked/><p className="homeP">Condos</p></span>
+      <div className={style.homeOptionContainer}>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_houses" type="checkbox" defaultChecked />
+          <p className={style.spanHomeP}>Houses</p>
+        </span>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_Apts" type="checkbox" defaultChecked />
+          <p className={style.spanHomeP}>Apartments</p>
+        </span>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_thomes" type="checkbox" defaultChecked />
+          <p className={style.spanHomeP}>TownHomes</p>
+        </span>
+        <span className={style.houseSpan}>
+          <input onClick={change} className={style.homeInp} id="search_condo" type="checkbox" defaultChecked />
+          <p className={style.spanHomeP}>Condos</p>
+        </span>
       </div>
-    )
+    );
   }
   return null;
-}
+};
 
 export default HomeType;

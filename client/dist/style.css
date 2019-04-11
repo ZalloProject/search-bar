@@ -1,37 +1,39 @@
 .mainStyle {
-  border: solid;
   height: 50px;
   width: 100%;
   display: flex;
+  box-shadow: 0 4px 4px -2px #c3c3c3;
 }
 .inputStyle {
   height: 25px;
   display: flex;
   margin-top: 10px;
-  width: 170px;
+  width: 190px;
+  outline: none;
 }
 .imageStyle {
   height: 20px;
   margin-top: 15px;
   position: absolute;
-  margin-left: 146px;
+  margin-left: 170px;
 }
 .inputContainer {
   display: flex;
-  width: 170px;
+  width: 195px;
   position: relative;
 }
 .arrowStyle {
   height: 10px;
-  position: absolute;
   margin-top: 21px;
-  margin-left: 80px;
-  padding-left: 5px;
+  margin-left: 5px;
+}
+
+.arrowStyle:hover {
+  cursor: pointer;
 }
 .priceContainer {
   margin-left: 10px;
   display: flex;
-  position: relative;
   width: 90px;
   flex-direction: column;
 }
@@ -47,18 +49,20 @@
   height: 20px;
   width: 80px;
   font-size: 14px;
+  margin-right: 5.5px;
+  outline: none;
 }
 
 .pricesContainer {
   width: 177px;
   height: 300px;
-  border: solid;
-  border-width: 1px;
+  box-shadow: 5px 5px 5px -2px #c3c3c3;
   position: absolute;
   margin-top: 50px;
   display: flex;
   flex-direction: column;
   align-items: flex-start;
+  overflow: hidden;
 }
 
 .firstLowPrice {
@@ -67,11 +71,13 @@
   font-size: 18px;
   display: flex;
   align-items: center;
+  outline: none;
 }
 
 .firstLowPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .lowPrice {
@@ -80,11 +86,13 @@
   font-size: 18px;
   display: flex;
   align-items: center;
+  outline: none;
 }
 
 .lowPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .firstHighPrice {
@@ -94,11 +102,13 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  outline: none;
 }
 
 .firstHighPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .highPrice {
@@ -108,11 +118,13 @@
   display: flex;
   justify-content: flex-end;
   align-items: center;
+  outline: none;
 }
 
 .highPrice:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .pFirstHigh {
@@ -133,10 +145,12 @@
 
 .bedsArrowStyle {
   height: 10px;
-  position: absolute;
   margin-top: 21px;
-  margin-left: 55px;
   padding-left: 5px;
+}
+
+.bedsArrowStyle:hover {
+  cursor: pointer;
 }
 
 .bedsContainer {
@@ -149,19 +163,22 @@
 
 .bedContainer {
   width: 65px;
-  border: solid;
-  border-width: 1px;
+  box-shadow: 5px 5px 5px -2px #c3c3c3;
+  position: absolute;
+  margin-top: 50px;
 }
 
 .bedSpan {
   display: flex;
   height: 30px;
   align-items: center;
+  outline: none;
 }
 
 .bedSpan:hover {
   color: white;
   background-color: #006aff;
+  cursor: pointer;
 }
 
 .pBeds {
@@ -171,17 +188,19 @@
 
 .homeArrowStyle {
   height: 10px;
-  position: absolute;
   margin-top: 21px;
-  margin-left: 77px;
-  padding-left: 5px;
+  margin-left: 5px;
+}
+
+.homeArrowStyle:hover {
+  cursor: pointer;
 }
 
 .homeTypeContainer {
   display: flex;
   margin-left: 13px;
   width: 90px;
-  height: 250px;
+  height: 212px;
   flex-direction: column;
 }
 
@@ -193,8 +212,7 @@
 
 .homeOptionContainer {
   width: 150px;
-  border: solid;
-  border-width: 1px;
+  box-shadow: 5px 5px 5px -2px #c3c3c3;
 }
 
 .homeInp {
@@ -202,5 +220,172 @@
 }
 
 .homeP {
+  margin-left: 3px;
+}
+
+.bedsP {
   margin-left: 5px;
+}
+
+.priceP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.bedsP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.homeP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.saveSearchP {
+  font-weight: bold;
+}
+
+.saveSearchP:hover {
+  color: #62aef7;
+  cursor: pointer;
+}
+
+.endMainContainer {
+  margin: auto;
+  margin-right: 0px;
+  display: flex;
+}
+
+.saveSearchContainer {
+  margin-right: 10px;
+}
+
+.savedHomesContainer {
+  background-color: #006aff;
+  width: 120px;
+  display: flex;
+  justify-content: center;
+  color: white;
+}
+
+.savedHomesContainer:hover {
+  cursor: pointer;
+  background: #1e5799; /* Old browsers */
+  background: -moz-linear-gradient(top, #1e5799 7%, #2989d8 100%, #7db9e8 100%, #2989d8 100%); /* FF3.6-15 */
+  background: -webkit-linear-gradient(
+    top,
+    #1e5799 7%,
+    #2989d8 100%,
+    #7db9e8 100%,
+    #2989d8 100%
+  ); /* Chrome10-25,Safari5.1-6 */
+  background: linear-gradient(
+    to bottom,
+    #1e5799 7%,
+    #2989d8 100%,
+    #7db9e8 100%,
+    #2989d8 100%
+  ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+}
+
+.filterContainer {
+  display: flex;
+}
+
+.homePIMG {
+  display: flex;
+  width: 95px;
+}
+
+.bedsPIMG {
+  display: flex;
+  width: 75px;
+}
+
+.pricesPIMG {
+  display: flex;
+  width: 95px;
+}
+
+.spanHomeP {
+  margin-left: 5px;
+}
+
+.homeInp:hover {
+  cursor: pointer;
+}
+
+/* 708 px */
+@media only screen and (max-width: 708px) {
+  .saveSearchContainer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 620px) {
+  .savedHomesContainer {
+    display: none;
+  }
+  .mainStyle {
+    overflow-y: hidden;
+  }
+  /* #searchBar {
+    overflow-x: hidden;
+  } */
+  .homeOptionContainer {
+    position: absolute;
+    margin-top: 50px;
+  }
+  .bedContainer {
+    position: absolute;
+    margin-top: 50px;
+  }
+}
+
+@media only screen and (max-width: 554px) {
+  .savedHomesContainer {
+    display: none;
+  }
+  .mainStyle {
+    overflow-y: hidden;
+  }
+  .bedContainer {
+    position: absolute;
+    margin-top: 50px;
+  }
+  /* #searchBar {
+    overflow-x: hidden;
+  } */
+  .homeOptionContainer {
+    position: absolute;
+    margin-top: 50px;
+    right: 1%;
+  }
+}
+
+@media only screen and (max-width: 386px) {
+  .savedHomesContainer {
+    display: none;
+  }
+  .mainStyle {
+    overflow-y: hidden;
+  }
+  .bedContainer {
+    right: 1%;
+  }
+  #searchBar {
+    overflow-x: hidden;
+  }
+  .homeOptionContainer {
+    position: absolute;
+    margin-top: 50px;
+    right: 1%;
+  }
+}
+
+@media only screen and (max-width: 394px) {
+  .pricesContainer {
+    right: 1%;
+  }
 }
