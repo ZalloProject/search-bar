@@ -2,8 +2,8 @@
 import React from 'react';
 import style from '../../dist/style.css';
 
-const HomeType = ({ homeCheck, change }) => {
-  if (homeCheck) {
+const HomeType = ({ view, change }) => {
+  if (view === 'homes') {
     return (
       <div className={style.homeOptionContainer}>
         <span className={style.houseSpan}>

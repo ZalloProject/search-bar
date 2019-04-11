@@ -2,8 +2,8 @@
 import React from 'react';
 import style from '../../dist/style.css';
 
-const Beds = ({ bedsCheck, change }) => {
-  if (bedsCheck) {
+const Beds = ({ view, change }) => {
+  if (view === 'beds') {
     return (
       <div className={style.bedContainer} role="menu">
         <span id="search_zero0" onClick={change} onKeyPress={change} role="menu" tabIndex="0" className={style.bedSpan}>

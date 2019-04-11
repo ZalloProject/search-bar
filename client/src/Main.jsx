@@ -16,45 +16,49 @@ class Search extends Component {
     this.state = {
       priceLow: '125,000',
       priceHigh: '950,000',
-      priceCheck: false,
       highPriceCheck: false,
       beds: '1',
-      bedsCheck: false,
-      homeCheck: false,
+      view: '',
       houses: 'X',
       condos: 'X',
       townHomes: 'X',
       apts: 'X'
     };
-    this.node = React.createRef();
-    this.openPrice = this.openPrice.bind(this);
     this.lowPriceChange = this.lowPriceChange.bind(this);
     this.highPriceChange = this.highPriceChange.bind(this);
-    this.openBeds = this.openBeds.bind(this);
     this.bedsChange = this.bedsChange.bind(this);
-    this.openHomes = this.openHomes.bind(this);
     this.homeChange = this.homeChange.bind(this);
-    this.bodyClick = this.bodyClick.bind(this);
+    this.view = this.view.bind(this);
   }
 
-  componentWillMount() {
-    window.addEventListener('click', this.bodyClick);
-  }
-
-  componentWillUnmount() {
-    window.addEventListener('click', this.bodyClick);
-  }
-
-  bodyClick(e) {
-    console.log(this.node.contains(e.target));
-    if (this.node.contains(e.target)) {
-      return;
+  view(e) {
+    const { view } = this.state;
+    console.log(e.target.id);
+    if (e.target.id === 'priceP' || e.target.id === 'priceIMG') {
+      view === 'prices' ? 
+      this.setState({
+        view: ''
+      }) :
+      this.setState({
+        view: 'prices'
+      }); 
+    } else if (e.target.id === 'bedsP' || e.target.id === 'priceIMG') {
+      view === 'beds' ? 
+      this.setState({
+        view: ''
+      }) :
+      this.setState({
+        view: 'beds'
+      }); 
+    } else if (e.target.id === 'homeP' || e.target.id === 'homeIMG') {
+      view === 'homes' ? 
+      this.setState({
+        view: ''
+      }) :
+      this.setState({
+        view: 'homes'
+      }); 
     }
-    this.setState({
-      homeCheck: false,
-      bedsCheck: false,
-      priceCheck: false
-    });
   }
 
   homeChange(e) {
@@ -117,42 +121,12 @@ class Search extends Component {
     );
   }
 
-  openHomes() {
-    const { homeCheck } = this.state;
-    if (homeCheck) {
-      this.setState({
-        homeCheck: false
-      });
-    } else {
-      this.setState({
-        homeCheck: true,
-        bedsCheck: false,
-        priceCheck: false
-      });
-    }
-  }
-
-  openPrice() {
-    const { priceCheck } = this.state;
-    if (priceCheck) {
-      this.setState({
-        priceCheck: false
-      });
-    } else {
-      this.setState({
-        homeCheck: false,
-        bedsCheck: false,
-        priceCheck: true
-      });
-    }
-  }
-
   bedsChange(e) {
     const bedSplit = e.currentTarget.id.split('');
     const bedNumber = bedSplit[bedSplit.length - 1];
     this.setState(
       {
-        bedsCheck: false,
+        view: '',
         beds: bedNumber
       },
       () => {
@@ -160,21 +134,6 @@ class Search extends Component {
         window.dispatchEvent(event);
       }
     );
-  }
-
-  openBeds() {
-    const { bedsCheck } = this.state;
-    if (bedsCheck) {
-      this.setState({
-        bedsCheck: false
-      });
-    } else {
-      this.setState({
-        homeCheck: false,
-        bedsCheck: true,
-        priceCheck: false
-      });
-    }
   }
 
   lowPriceChange(e) {
@@ -210,7 +169,7 @@ class Search extends Component {
   }
 
   render() {
-    const { priceLow, priceHigh, priceCheck, highPriceCheck, beds, bedsCheck, homeCheck } = this.state;
+    const { priceLow, priceHigh, highPriceCheck, beds, view } = this.state;
     let newLow = priceLow.split(',')[0];
     newLow += 'k';
     let newHigh = priceHigh.split(',')[0];
@@ -228,19 +187,20 @@ class Search extends Component {
         <div className={style.filterContainer}>
           <div className={style.priceContainer} ref={node => (this.node = node)}>
             <div className="pricesPIMG">
-              <p className={style.priceP} onClick={this.openPrice} onKeyPress={this.openPrice}>
+              <p id="priceP" className={style.priceP} onClick={this.view} onKeyPress={this.view}>
                 {newLow} - {newHigh}
               </p>
               <img
-                onClick={this.openPrice}
-                onKeyPress={this.openPrice}
+                id="priceIMG"
+                onClick={this.view}
+                onKeyPress={this.view}
                 src="https://image.flaticon.com/icons/svg/60/60995.svg"
                 alt="arrow down"
                 className={style.arrowStyle}
               />
             </div>
             <Prices
-              check={priceCheck}
+              view={view}
               low={priceLow}
               high={priceHigh}
               lowChange={this.lowPriceChange}
@@ -250,33 +210,35 @@ class Search extends Component {
           </div>
           <div className={style.bedsContainer}>
             <div className={style.bedsPIMG}>
-              <p onClick={this.openBeds} onKeyPress={this.openBeds} className={style.bedsP}>
+              <p id="bedsP" className={style.bedsP} onClick={this.view} onKeyPress={this.view}>
                 {beds}+ Beds
               </p>
               <img
-                onClick={this.openBeds}
-                onKeyPress={this.openBeds}
+                id="bedsIMG"
+                onClick={this.view}
+                onKeyPress={this.view}
                 src="https://image.flaticon.com/icons/svg/60/60995.svg"
                 alt="arrow down"
                 className={style.bedsArrowStyle}
               />
             </div>
-            <Beds open={priceCheck} bedsCheck={bedsCheck} openBeds={this.openBeds} change={this.bedsChange} />
+            <Beds view={view} openBeds={this.openBeds} change={this.bedsChange} />
           </div>
           <div className={style.homeTypeContainer}>
             <div className={style.homePIMG}>
-              <p className={style.homeP} onClick={this.openHomes} onKeyPress={this.openHomes}>
+              <p id="homeP" className={style.homeP} onClick={this.view} onKeyPress={this.view}>
                 Home Type
               </p>
               <img
-                onClick={this.openHomes}
-                onKeyPress={this.openHomes}
+                id="homeIMG"
+                onClick={this.view}
+                onKeyPress={this.view}
                 src="https://image.flaticon.com/icons/svg/60/60995.svg"
                 alt="arrow down"
                 className={style.homeArrowStyle}
               />
             </div>
-            <HomeType change={this.homeChange} homeCheck={homeCheck} />
+            <HomeType change={this.homeChange} view={view} />
           </div>
         </div>
         <div className={style.endMainContainer}>
