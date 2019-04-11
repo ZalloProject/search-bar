@@ -6,10 +6,6 @@ import Beds from './components/Beds.jsx';
 import HomeType from './components/HomeType.jsx';
 import style from '../dist/style.css';
 
-window.addEventListener('price_change', e => console.log(e.detail));
-window.addEventListener('beds_change', e => console.log(e.detail));
-window.addEventListener('options', e => console.log(e.detail));
-
 class Search extends Component {
   constructor() {
     super();

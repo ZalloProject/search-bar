@@ -2,6 +2,7 @@
 import React from 'react';
 import style from '../../dist/style.css';
 
+//home type dropdown
 const HomeType = ({ view, change }) => {
   if (view === 'homes') {
     return (

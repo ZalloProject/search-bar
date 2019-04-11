@@ -2,6 +2,7 @@
 import React from 'react';
 import style from '../../dist/style.css';
 
+//beds dropdown 
 const Beds = ({ view, change }) => {
   if (view === 'beds') {
     return (

@@ -4,6 +4,7 @@ import React from 'react';
 import highSpanChange from '../utils/highSpanChange.jsx';
 import style from '../../dist/style.css';
 
+//prices drop down
 const Prices = ({ view, low, high, lowChange, highCheck, highChange }) => {
   if (view === 'prices' && !highCheck) {
     return (
