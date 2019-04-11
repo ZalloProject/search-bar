@@ -20,13 +20,34 @@ class Search extends Component {
       townHomes: 'X',
       apts: 'X'
     };
+    this.container = React.createRef();
     this.lowPriceChange = this.lowPriceChange.bind(this);
     this.highPriceChange = this.highPriceChange.bind(this);
     this.bedsChange = this.bedsChange.bind(this);
     this.homeChange = this.homeChange.bind(this);
     this.view = this.view.bind(this);
+    this.bodyClick = this.bodyClick.bind(this);
   }
 
+  componentDidMount() {
+    document.addEventListener("mousedown", this.bodyClick);
+  }
+  componentWillUnmount() {
+    document.removeEventListener("mousedown", this.bodyClick);
+  }
+
+  bodyClick(event) {
+    for(let i = 0; i < event.path.length; i++) {
+      if(event.path[i].className !== undefined && event.path[i].className === 'style__priceContainer___3pgcy') {
+        return;
+      }
+    }
+    if (this.container.current && !this.container.current.contains(event.target)) {
+      this.setState({
+        view: ''
+      });
+    }
+  }
   //method to render dropdowns
   view(e) {
     const { view } = this.state;
@@ -166,7 +187,7 @@ class Search extends Component {
           />
         </div>
         <div className={style.filterContainer}>
-          <div className={style.priceContainer} ref={node => (this.node = node)}>
+          <div className={style.priceContainer} ref={this.container}>
             <div className="pricesPIMG">
               <p id="priceP" className={style.priceP} onClick={this.view} onKeyPress={this.view}>
                 {newLow} - {newHigh}
@@ -189,7 +210,7 @@ class Search extends Component {
               highChange={this.highPriceChange}
             />
           </div>
-          <div className={style.bedsContainer}>
+          <div className={style.bedsContainer} ref={this.container}>
             <div className={style.bedsPIMG}>
               <p id="bedsP" className={style.bedsP} onClick={this.view} onKeyPress={this.view}>
                 {beds}+ Beds
@@ -205,7 +226,7 @@ class Search extends Component {
             </div>
             <Beds view={view} openBeds={this.openBeds} change={this.bedsChange} />
           </div>
-          <div className={style.homeTypeContainer}>
+          <div className={style.homeTypeContainer} ref={this.container}>
             <div className={style.homePIMG}>
               <p id="homeP" className={style.homeP} onClick={this.view} onKeyPress={this.view}>
                 Home Type
