@@ -158,7 +158,6 @@ class Search extends Component {
         let { priceLow, priceHigh } = this.state;
         priceLow = Number(priceLow.replace(',', ''));
         priceHigh = Number(priceHigh.replace(',', ''));
-        console.log(priceLow);
         const priceEvent = new CustomEvent('price_change', {
           detail: {
             low: priceLow,
