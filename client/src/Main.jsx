@@ -26,6 +26,7 @@ class Search extends Component {
       townHomes: 'X',
       apts: 'X'
     };
+    this.node = React.createRef();
     this.openPrice = this.openPrice.bind(this);
     this.lowPriceChange = this.lowPriceChange.bind(this);
     this.highPriceChange = this.highPriceChange.bind(this);
@@ -33,6 +34,27 @@ class Search extends Component {
     this.bedsChange = this.bedsChange.bind(this);
     this.openHomes = this.openHomes.bind(this);
     this.homeChange = this.homeChange.bind(this);
+    this.bodyClick = this.bodyClick.bind(this);
+  }
+
+  componentWillMount() {
+    window.addEventListener('click', this.bodyClick);
+  }
+
+  componentWillUnmount() {
+    window.addEventListener('click', this.bodyClick);
+  }
+
+  bodyClick(e) {
+    console.log(this.node.contains(e.target));
+    if (this.node.contains(e.target)) {
+      return;
+    }
+    this.setState({
+      homeCheck: false,
+      bedsCheck: false,
+      priceCheck: false
+    });
   }
 
   homeChange(e) {
@@ -204,7 +226,7 @@ class Search extends Component {
           />
         </div>
         <div className={style.filterContainer}>
-          <div className={style.priceContainer}>
+          <div className={style.priceContainer} ref={node => (this.node = node)}>
             <div className="pricesPIMG">
               <p className={style.priceP} onClick={this.openPrice} onKeyPress={this.openPrice}>
                 {newLow} - {newHigh}

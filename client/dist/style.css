@@ -164,6 +164,8 @@
 .bedContainer {
   width: 65px;
   box-shadow: 5px 5px 5px -2px #c3c3c3;
+  position: absolute;
+  margin-top: 50px;
 }
 
 .bedSpan {
