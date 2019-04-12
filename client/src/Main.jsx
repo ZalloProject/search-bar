@@ -181,7 +181,7 @@ class Search extends Component {
   }
 
   render() {
-    const { priceLow, priceHigh, highPriceCheck, beds, view } = this.state;
+    const { priceLow, priceHigh, highPriceCheck, beds, view, houses, apts, townHomes, condos } = this.state;
     let newLow = priceLow.split(',')[0];
     newLow += 'k';
     let newHigh = priceHigh.split(',')[0];
@@ -198,7 +198,7 @@ class Search extends Component {
         </div>
         <div className={style.filterContainer}>
           <div className={style.priceContainer} ref={this.container}>
-            <div className="pricesPIMG">
+            <div className={style.pricesPIMG}>
               <p id="priceP" className={style.priceP} onClick={this.view} onKeyPress={this.view}>
                 {newLow} - {newHigh}
               </p>
@@ -250,7 +250,14 @@ class Search extends Component {
                 className={style.homeArrowStyle}
               />
             </div>
-            <HomeType change={this.homeChange} view={view} />
+            <HomeType
+              change={this.homeChange}
+              view={view}
+              houseCheck={houses}
+              aptCheck={apts}
+              tHomeCheck={townHomes}
+              condoCheck={condos}
+            />
           </div>
         </div>
         <div className={style.endMainContainer}>

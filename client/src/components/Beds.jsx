@@ -4,7 +4,6 @@ import style from '../../dist/style.css';
 
 // beds dropdown
 const Beds = ({ view, change }) => {
-  console.log(view, 'THIS IS THE VIEW FROM BEDS');
   if (view === 'beds') {
     return (
       <div className={style.bedContainer} role="menu">
