@@ -2,8 +2,9 @@
 import React from 'react';
 import style from '../../dist/style.css';
 
-const HomeType = ({ homeCheck, change }) => {
-  if (homeCheck) {
+//home type dropdown
+const HomeType = ({ view, change }) => {
+  if (view === 'homes') {
     return (
       <div className={style.homeOptionContainer}>
         <span className={style.houseSpan}>

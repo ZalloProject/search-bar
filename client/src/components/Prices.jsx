@@ -4,8 +4,9 @@ import React from 'react';
 import highSpanChange from '../utils/highSpanChange.jsx';
 import style from '../../dist/style.css';
 
-const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
-  if (check && !highCheck) {
+//prices drop down
+const Prices = ({ view, low, high, lowChange, highCheck, highChange }) => {
+  if (view === 'prices' && !highCheck) {
     return (
       <div className={style.pricesContainer}>
         <div className={style.priceInputTrack}>
@@ -105,13 +106,12 @@ const Prices = ({ check, low, high, lowChange, highCheck, highChange }) => {
       </div>
     );
   }
-  if (check && highCheck) {
+  if (view === 'prices' && highCheck) {
     const highPricesSpanArr = highSpanChange(low, highChange);
     return (
       <div className={style.pricesContainer}>
         <div className={style.priceInputTrack}>
           <input value={low} type="text" className={style.priceInput} readOnly />
-          <p>-</p>
           <input value={high} type="text" className={style.priceInput} readOnly />
         </div>
         {highPricesSpanArr}
