@@ -15,7 +15,7 @@
   height: 20px;
   margin-top: 15px;
   position: absolute;
-  margin-left: 165px;
+  margin-left: 170px;
 }
 .inputContainer {
   display: flex;
@@ -25,6 +25,7 @@
 .arrowStyle {
   height: 10px;
   margin-top: 21px;
+  margin-left: 5px;
 }
 
 .arrowStyle:hover {
@@ -147,6 +148,7 @@
 .bedsArrowStyle {
   height: 10px;
   margin-top: 21px;
+  margin-left: 5px;
 }
 
 .bedsArrowStyle:hover {
@@ -190,6 +192,7 @@
 .homeArrowStyle {
   height: 10px;
   margin-top: 21px;
+  margin-left: 5px;
 }
 
 .homeArrowStyle:hover {
@@ -198,7 +201,7 @@
 
 .homeTypeContainer {
   display: flex;
-  margin-left: 13px;
+  margin-left: 10px;
   width: 90px;
   flex-direction: column;
 }
@@ -226,7 +229,6 @@
 }
 
 .bedsP {
-  margin-left: 5px;
   margin-top: 15%;
 }
 

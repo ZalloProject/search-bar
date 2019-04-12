@@ -2,17 +2,17 @@
 /* eslint-disable no-param-reassign */
 import React from 'react';
 import style from '../../dist/style.css';
-import numbro from 'numbro';
 
-//formats the number into a string
+// formats the number into a string
 const numberToStr = num => {
-  num = numbro(num).format({thousandSeparated: true});
+  num = Intl.NumberFormat().format(num);
   const dollarSign = '$';
   num = dollarSign.concat(num);
+  console.log(num, 'THIS IS THE NUM FROM NUM TO STRING');
   return num;
 };
 
-//generates the high prices in the price drop down
+// generates the high prices in the price drop down
 const highSpanChange = (price, fn) => {
   const spanArr = [];
   price = price.replace(',', '');

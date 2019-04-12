@@ -158,7 +158,7 @@ class Search extends Component {
   // method for changing the high price filter
   highPriceChange(e) {
     let high = e.currentTarget.children[0].innerHTML;
-    high = high.substr(1, high.length - 2);
+    high = high.substr(1, high.length - 1);
     this.setState(
       {
         priceHigh: high,
