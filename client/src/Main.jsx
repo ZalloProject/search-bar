@@ -1,3 +1,5 @@
+/* eslint-disable no-unused-expressions */
+/* eslint-disable no-plusplus */
 /* eslint-disable jsx-a11y/no-noninteractive-element-interactions */
 /* eslint-disable import/extensions */
 import React, { Component } from 'react';
@@ -30,15 +32,20 @@ class Search extends Component {
   }
 
   componentDidMount() {
-    document.addEventListener("mousedown", this.bodyClick);
-  }
-  componentWillUnmount() {
-    document.removeEventListener("mousedown", this.bodyClick);
+    document.addEventListener('mousedown', this.bodyClick);
   }
 
+  componentWillUnmount() {
+    document.removeEventListener('mousedown', this.bodyClick);
+  }
+
+  // handles closing dropdowns on body click
   bodyClick(event) {
-    for(let i = 0; i < event.path.length; i++) {
-      if(event.path[i].className !== undefined && event.path[i].className === 'style__priceContainer___3pgcy') {
+    for (let i = 0; i < event.path.length; i++) {
+      if (
+        (event.path[i].className !== undefined && event.path[i].className === 'style__priceContainer___3pgcy') ||
+        event.path[i].className === 'style__bedsContainer___1GDFb'
+      ) {
         return;
       }
     }
@@ -48,36 +55,38 @@ class Search extends Component {
       });
     }
   }
-  //method to render dropdowns
+
+  // method to render dropdowns
   view(e) {
     const { view } = this.state;
     if (e.target.id === 'priceP' || e.target.id === 'priceIMG') {
-      view === 'prices' ? 
-      this.setState({
-        view: ''
-      }) :
-      this.setState({
-        view: 'prices'
-      }); 
-    } else if (e.target.id === 'bedsP' || e.target.id === 'priceIMG') {
-      view === 'beds' ? 
-      this.setState({
-        view: ''
-      }) :
-      this.setState({
-        view: 'beds'
-      }); 
+      view === 'prices'
+        ? this.setState({
+            view: ''
+          })
+        : this.setState({
+            view: 'prices'
+          });
+    } else if (e.target.id === 'bedsP' || e.target.id === 'bedsIMG') {
+      view === 'beds'
+        ? this.setState({
+            view: ''
+          })
+        : this.setState({
+            view: 'beds'
+          });
     } else if (e.target.id === 'homeP' || e.target.id === 'homeIMG') {
-      view === 'homes' ? 
-      this.setState({
-        view: ''
-      }) :
-      this.setState({
-        view: 'homes'
-      }); 
+      view === 'homes'
+        ? this.setState({
+            view: ''
+          })
+        : this.setState({
+            view: 'homes'
+          });
     }
   }
-  //changes search filter for home type
+
+  // changes search filter for home type
   homeChange(e) {
     const { houses, condos, townHomes, apts } = this.state;
     let newHouseCheck = houses;
@@ -85,13 +94,13 @@ class Search extends Component {
     let newTownCheck = townHomes;
     let newAptCheck = apts;
     if (e.currentTarget.id === 'search_houses') {
-      houses === 'X' ? newHouseCheck = '' : newHouseCheck = 'X';
+      houses === 'X' ? (newHouseCheck = '') : (newHouseCheck = 'X');
     } else if (e.currentTarget.id === 'search_Apts') {
-      apts === 'X' ? newAptCheck = '' : newAptCheck = 'X';
+      apts === 'X' ? (newAptCheck = '') : (newAptCheck = 'X');
     } else if (e.currentTarget.id === 'search_thomes') {
-      townHomes === 'X' ? newTownCheck = '' : newTownCheck = 'X';
+      townHomes === 'X' ? (newTownCheck = '') : (newTownCheck = 'X');
     } else if (e.currentTarget.id === 'search_condo') {
-      condos === 'X' ? newCondoCheck = '' : newCondoCheck = 'X';
+      condos === 'X' ? (newCondoCheck = '') : (newCondoCheck = 'X');
     }
     this.setState(
       {
@@ -112,14 +121,15 @@ class Search extends Component {
         };
         const keys = Object.keys(obj);
         keys.forEach(key => {
-          obj[key] === 'X' ? optionsArr.push(key) : null
+          obj[key] === 'X' ? optionsArr.push(key) : null;
         });
         const event = new CustomEvent('options', { detail: { options: optionsArr } });
         window.dispatchEvent(event);
       }
     );
   }
-  //method for filtering how many beds
+
+  // method for filtering how many beds
   bedsChange(e) {
     const bedSplit = e.currentTarget.id.split('');
     const bedNumber = bedSplit[bedSplit.length - 1];
@@ -134,17 +144,18 @@ class Search extends Component {
       }
     );
   }
-  //method for changing the low price filter
+
+  // method for changing the low price filter
   lowPriceChange(e) {
     let priceLow = e.currentTarget.children[0].innerHTML;
     priceLow = priceLow.substr(1, priceLow.length - 2);
     this.setState({
       priceLow,
-      priceCheck: true,
       highPriceCheck: true
     });
   }
-  //method for changing the high price filter
+
+  // method for changing the high price filter
   highPriceChange(e) {
     let high = e.currentTarget.children[0].innerHTML;
     high = high.substr(1, high.length - 2);
@@ -223,7 +234,7 @@ class Search extends Component {
                 className={style.bedsArrowStyle}
               />
             </div>
-            <Beds view={view} openBeds={this.openBeds} change={this.bedsChange} />
+            <Beds view={view} change={this.bedsChange} />
           </div>
           <div className={style.homeTypeContainer} ref={this.container}>
             <div className={style.homePIMG}>
