@@ -25,7 +25,6 @@
 .arrowStyle {
   height: 10px;
   margin-top: 21px;
-  margin-left: 5px;
 }
 
 .arrowStyle:hover {
@@ -148,7 +147,6 @@
 .bedsArrowStyle {
   height: 10px;
   margin-top: 21px;
-  margin-left: 5px;
 }
 
 .bedsArrowStyle:hover {
@@ -192,7 +190,6 @@
 .homeArrowStyle {
   height: 10px;
   margin-top: 21px;
-  margin-left: 5px;
 }
 
 .homeArrowStyle:hover {
