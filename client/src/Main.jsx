@@ -20,7 +20,8 @@ class Search extends Component {
       houses: 'X',
       condos: 'X',
       townHomes: 'X',
-      apts: 'X'
+      apts: 'X',
+      saved: 0
     };
     this.container = React.createRef();
     this.lowPriceChange = this.lowPriceChange.bind(this);
@@ -29,14 +30,24 @@ class Search extends Component {
     this.homeChange = this.homeChange.bind(this);
     this.view = this.view.bind(this);
     this.bodyClick = this.bodyClick.bind(this);
+    this.savedChange = this.savedChange.bind(this);
   }
 
   componentDidMount() {
     document.addEventListener('mousedown', this.bodyClick);
+    window.addEventListener('home_saved', e => {
+      this.savedChange(e.detail.homesSaved);
+    });
   }
 
   componentWillUnmount() {
     document.removeEventListener('mousedown', this.bodyClick);
+  }
+
+  savedChange(num) {
+    this.setState({
+      saved: num
+    })
   }
 
   // handles closing dropdowns on body click
@@ -181,7 +192,7 @@ class Search extends Component {
   }
 
   render() {
-    const { priceLow, priceHigh, highPriceCheck, beds, view, houses, apts, townHomes, condos } = this.state;
+    const { priceLow, priceHigh, highPriceCheck, beds, view, houses, apts, townHomes, condos, saved } = this.state;
     let newLow = priceLow.split(',')[0];
     newLow += 'k';
     let newHigh = priceHigh.split(',')[0];
@@ -265,7 +276,7 @@ class Search extends Component {
             <p className={style.saveSearchP}>Save Search</p>
           </div>
           <div className={style.savedHomesContainer}>
-            <p className={style.savedHomesP}>Saved homes (0)</p>
+            <p className={style.savedHomesP}>Saved homes ( {saved} )</p>
           </div>
         </div>
       </div>
