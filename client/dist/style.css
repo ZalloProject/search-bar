@@ -8,18 +8,18 @@
   height: 25px;
   display: flex;
   margin-top: 10px;
-  width: 190px;
+  width: 205px;
   outline: none;
 }
 .imageStyle {
   height: 20px;
   margin-top: 15px;
   position: absolute;
-  margin-left: 170px;
+  margin-left: 187px;
 }
 .inputContainer {
   display: flex;
-  width: 195px;
+  width: 215px;
   position: relative;
 }
 .arrowStyle {
