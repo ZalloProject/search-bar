@@ -5,7 +5,7 @@ import React from 'react';
 import style from '../../dist/style.css';
 
 // home type dropdown
-const HomeType = ({ view, change, houseCheck, aptCheck, tHomeCheck, condoCheck }) => {
+const HomeType = ({ view, homeTypeChange, houseCheck, aptCheck, tHomeCheck, condoCheck }) => {
   if (view === 'homes') {
     houseCheck === 'X' ? (houseCheck = true) : (houseCheck = false);
     aptCheck === 'X' ? (aptCheck = true) : (aptCheck = false);
@@ -15,7 +15,7 @@ const HomeType = ({ view, change, houseCheck, aptCheck, tHomeCheck, condoCheck }
       <div className={style.homeOptionContainer}>
         <span className={style.houseSpan}>
           <input
-            onClick={change}
+            onClick={homeTypeChange}
             className={style.homeInp}
             id="search_houses"
             type="checkbox"
@@ -26,7 +26,7 @@ const HomeType = ({ view, change, houseCheck, aptCheck, tHomeCheck, condoCheck }
         </span>
         <span className={style.houseSpan}>
           <input
-            onClick={change}
+            onClick={homeTypeChange}
             className={style.homeInp}
             id="search_Apts"
             type="checkbox"
@@ -37,7 +37,7 @@ const HomeType = ({ view, change, houseCheck, aptCheck, tHomeCheck, condoCheck }
         </span>
         <span className={style.houseSpan}>
           <input
-            onClick={change}
+            onClick={homeTypeChange}
             className={style.homeInp}
             id="search_thomes"
             type="checkbox"
@@ -48,7 +48,7 @@ const HomeType = ({ view, change, houseCheck, aptCheck, tHomeCheck, condoCheck }
         </span>
         <span className={style.houseSpan}>
           <input
-            onClick={change}
+            onClick={homeTypeChange}
             className={style.homeInp}
             id="search_condo"
             type="checkbox"

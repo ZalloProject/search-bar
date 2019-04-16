@@ -8,7 +8,6 @@ const numberToStr = num => {
   num = Intl.NumberFormat().format(num);
   const dollarSign = '$';
   num = dollarSign.concat(num);
-  console.log(num, 'THIS IS THE NUM FROM NUM TO STRING');
   return num;
 };
 

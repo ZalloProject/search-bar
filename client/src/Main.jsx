@@ -47,7 +47,7 @@ class Search extends Component {
   savedChange(num) {
     this.setState({
       saved: num
-    })
+    });
   }
 
   // handles closing dropdowns on body click
@@ -262,7 +262,7 @@ class Search extends Component {
               />
             </div>
             <HomeType
-              change={this.homeChange}
+              homeTypeChange={this.homeChange}
               view={view}
               houseCheck={houses}
               aptCheck={apts}
